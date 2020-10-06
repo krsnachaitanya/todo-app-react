@@ -1,4 +1,13 @@
 import React, { useState } from "react";
+import {
+  Button,
+  FormControl,
+  List,
+  ListItem,
+  Container,
+  Input,
+  InputLabel,
+} from "@material-ui/core";
 import "./App.css";
 
 function App() {
@@ -13,22 +22,31 @@ function App() {
     setInput("");
   };
   return (
-    <div className="App">
-      <form action="" method="post">
-        <input
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-        />
-        <button onClick={addTodo} type="submit">
+    <Container className="App" maxWidth="sm">
+      <form className="input" action="" method="post">
+        <FormControl>
+          <InputLabel>Write a Todo</InputLabel>
+          <Input
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+          />
+        </FormControl>
+        <Button
+          disabled={!input}
+          onClick={addTodo}
+          type="submit"
+          variant="contained"
+          color="primary"
+        >
           Add Todo
-        </button>
+        </Button>
       </form>
-      <ul>
+      <List>
         {todos.map((todo) => (
-          <li>{todo}</li>
+          <ListItem>{todo}</ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Container>
   );
 }
 
