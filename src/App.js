@@ -11,6 +11,7 @@ import {
 import Todo from "./components/todo/todo.component";
 import db from "./firebase";
 import firebase from "firebase";
+import AddIcon from "@material-ui/icons/Add";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -53,6 +54,7 @@ function App() {
           variant="contained"
           color="primary"
         >
+          <AddIcon />
           Add Todo
         </Button>
       </form>
