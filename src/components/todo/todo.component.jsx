@@ -67,22 +67,24 @@ function Todo({ todo }) {
     <>
       <ListItem>
         <ListItemText primary="Todo" secondary={todo.todo} />
-        <Button color="primary" variant="contained" onClick={handleOpen}>
-          <CreateIcon />
-          Edit
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={(event) => db.collection("todos").doc(todo.id).delete()}
-        >
-          <DeleteForeverIcon /> Delete
-        </Button>
+        <div className="todo__buttons">
+          <Button color="primary" variant="contained" onClick={handleOpen}>
+            <CreateIcon />
+            Edit
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={(event) => db.collection("todos").doc(todo.id).delete()}
+          >
+            <DeleteForeverIcon /> Delete
+          </Button>
+        </div>
       </ListItem>
       <Modal open={open} onClose={handleClose}>
         <div style={modalStyle} className={classes.paper}>
-          <h2>Edit Todo</h2>
-          <form action="" method="post">
+          <h2 className="modal__heading">Edit Todo</h2>
+          <form className="input" action="" method="post">
             <FormControl>
               <InputLabel>Edit Todo</InputLabel>
               <Input
@@ -99,11 +101,13 @@ function Todo({ todo }) {
             >
               Update Todo
             </Button>
+          </form>
+          <div className="close__modal">
             <Button variant="contained" color="secondary" onClick={handleClose}>
               <CloseIcon />
               Close
             </Button>
-          </form>
+          </div>
         </div>
       </Modal>
     </>
