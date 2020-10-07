@@ -1,9 +1,13 @@
 import React from "react";
 import "./todo.styles.css";
-import { ListItem } from "@material-ui/core";
+import { ListItem, ListItemText } from "@material-ui/core";
 
 function Todo({ text }) {
-  return <ListItem>{text}</ListItem>;
+  return (
+    <ListItem>
+      <ListItemText primary="Todo" secondary={text} />
+    </ListItem>
+  );
 }
 
 export default Todo;
