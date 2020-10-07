@@ -58,7 +58,7 @@ function App() {
       </form>
       <List>
         {todos.map((todo) => (
-          <Todo todo={todo} />
+          <Todo key={todo.id} todo={todo} />
         ))}
       </List>
     </Container>
